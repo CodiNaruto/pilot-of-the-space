@@ -1,6 +1,5 @@
 score = 0
 ecran = "menu"
-coll = False
 start = False
 class vaisseau:
     def __init__(self, canva):
@@ -79,7 +78,6 @@ class asteroide:
             
     def collision(self):
         global ecran
-        global coll
         self.truc = canva.coords(self.id)
         truc_v = canva.coords(az.id)
         if self.truc[2] <= truc_v[2] and self.truc[2] >= truc_v[0] or self.truc[0] <= truc_v[2] and self.truc[0] >= truc_v[0]:
@@ -105,7 +103,7 @@ canva.pack()
 tk.title("Pilot of the space")
 tk.resizable()
 aff_gameov = canva.create_text(175, 250, text="Game over", fill="yellow", state="hidden", font=("Helvetica", 20))
-aff_scoreg = canva.create_text(175, 350, text="Votre score est %s" % score, fill="yellow", state="hidden", font=("Helvetica", 10))
+aff_scoreg = canva.create_text(175, 350, text="Your score is %s" % score, fill="yellow", state="hidden", font=("Helvetica", 10))
 liste_ast = []
 asto = liste_ast.append
 az = 0
@@ -120,7 +118,7 @@ def ast_ref(name1):
     liste_ast[name1] = (asteroide(canva))
     liste_ast[name1].name(name1)
     liste_ast[name1].start()
-aff_score = canva.create_text(40, 40, text="votre score est %s." % score, state="hidden", fill="yellow")
+aff_score = canva.create_text(40, 40, text="Your score is %s." % score, state="hidden", fill="yellow")
 canva.create_rectangle(100, 200, 105, 205, fill="white")
 canva.create_rectangle(200, 364, 205, 369, fill="white")
 canva.create_rectangle(375, 123, 380, 128, fill="white")
